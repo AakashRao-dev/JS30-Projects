@@ -21,7 +21,5 @@ const toggle = document.querySelectorAll('.toggle');
 toggle.forEach(toggle => {
   toggle.addEventListener('click', function () {
     toggle.classList.toggle('active');
-    // It will toggle {add/remove} active class from body
-    console.log('WOrking!');
   });
 });
