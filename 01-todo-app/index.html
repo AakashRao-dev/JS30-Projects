@@ -4,18 +4,6 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="./css/main.css" />
-    <link
-      rel="apple-touch-icon"
-      sizes="180x180"
-      href="/favicon/apple-touch-icon"
-    />
-    <link
-      rel="icon"
-      type="image/png"
-      sizes="32x32"
-      href="/favicon/favicon-32x32.png"
-    />
     <link
       rel="icon"
       type="image/png"
@@ -23,26 +11,35 @@
       href="/favicon/favicon-16x16.png"
     />
     <link rel="manifest" href="/favicon/site.webmanifest" />
-    <title>Project-01: Todo App</title>
+    <link rel="stylesheet" href="/01-todo-app/css/main.min.css" />
+    <title>Todo List App</title>
   </head>
   <body>
-    <div class="modal">
-      <h1>
-        <span></span>
-        <span></span>
-      </h1>
+    <section>
+      <div class="container">
+        <div class="add-task">
+          <form>
+            <input type="text" placeholder="Add a Task" />
+            <button type="submit">Add</button>
+          </form>
+        </div>
 
-      <div class="input__container">
-        <input
-          type="text"
-          placeholder="Please enter your name"
-          id="input__name"
-        />
+        <!-- ORDERED LIST -->
+        <h2>List of Tasks To Do</h2>
+        <hr />
+        <ol class="todo-list">
+          <!-- <li>
+            Task 1
+            <button><i class="fas fa-trash-alt"></i></button>
+          </li> -->
+        </ol>
+        <button class="clear-tasks">Clear Tasks</button>
       </div>
-
-      <div class="theme__container"></div>
-    </div>
-
+    </section>
+    <script
+      src="https://kit.fontawesome.com/2905a6fb7c.js"
+      crossorigin="anonymous"
+    ></script>
     <script src="./js/app.js"></script>
   </body>
 </html>

@@ -1,25 +1,41 @@
 'use strict';
 
-const themeContainer = document.querySelector('.theme__container');
+// DOM ELEMENTS
+const Input = document.querySelector('input');
+const Button = document.querySelector('button');
 
-let toggleThemeEl = '';
+const TodoList = document.querySelector('.todo-list');
+const ClearTasks = document.querySelector('.clear-tasks');
 
-for (let i = 0; i < 3; i++) {
-  toggleThemeEl += `
-    <div class="theme__input">
-      <div class="toggle">
-        <div class="indicator"></div>
-      </div>
-    </div>
-`;
-}
+// ADD LIST ITEM
+const addTask = e => {
+  e.preventDefault();
+  const newListItem = document.createElement('li');
+  const deleteListItem = document.createElement('button');
 
-themeContainer.innerHTML += toggleThemeEl;
+  deleteListItem.innerHTML = `<i class="fas fa-trash-alt"></i>`;
 
-const toggle = document.querySelectorAll('.toggle');
+  if (Input.value !== '') {
+    newListItem.textContent = Input.value;
+    newListItem.appendChild(deleteListItem);
+    TodoList.appendChild(newListItem);
+    Input.value = '';
+  } else {
+    alert('Enter a task');
+  }
 
-toggle.forEach(toggle => {
-  toggle.addEventListener('click', function () {
-    toggle.classList.toggle('active');
+  // DELETE LIST ITEM
+  deleteListItem.addEventListener('click', function () {
+    const del = confirm('Are you sure to delete this Item?');
+
+    if (del === true) {
+      const parentListItem = this.parentNode;
+      parentListItem.remove();
+    }
   });
+};
+
+Button.addEventListener('click', addTask);
+ClearTasks.addEventListener('click', () => {
+  TodoList.innerHTML = '';
 });
